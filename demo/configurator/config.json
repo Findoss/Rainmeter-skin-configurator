@@ -1,0 +1,84 @@
+{
+  "config": [
+    {
+      "pathConfigFile": "../@Resources/Variables.inc",
+      "section": [
+        {
+          "name": "Variables",
+          "inputs": [
+            {
+              "type": "input", 
+              "discriotion": "Theme",
+              "key":"Theme"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Language",
+              "key":"Language"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Path Cleaner",
+              "key":"Cleaner"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Direction audio visualizer",
+              "key":"DirectionAudioVisualizer"
+            },
+            {
+              "type": "input", 
+              "discriotion": "All scale",
+              "key":"Scale"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Scale Tarsh",
+              "key":"ScaleTarsh"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Scale Bar",
+              "key":"ScaleBar"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Scale audio control",
+              "key":"ScaleAudioControl"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Scale audio visualizer",
+              "key":"ScaleAudioVisualizer"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Scale clock",
+              "key":"ScaleClock"
+            },
+            {
+              "type": "input", 
+              "discriotion": "Scale info",
+              "key":"ScaleInfo"
+            }
+          ]
+        },
+        {
+          "name": "StyleFont",
+          "inputs": [
+            {
+              "type": "input", 
+              "discriotion": "Antialias",
+              "key":"Antialias"
+            },
+            {
+              "type": "input", 
+              "discriotion": "FontFace",
+              "key":"FontFace"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
