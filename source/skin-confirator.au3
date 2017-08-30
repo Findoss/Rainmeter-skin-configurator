@@ -1,7 +1,7 @@
 #cs
   Name = Rainmeter skin confirator
   Author = Findoss
-  Version = 1.0.0
+  Version = 1.0.1
   License = MIT
 #ce
 
@@ -40,7 +40,7 @@ Dim $items[$countFileConfin][$limitSection][$limitInput]
 
 Global $W = 440
 Global $H = $max+5
-GUICreate("Rainmeter skin confirator", $W, $H, $WS_EX_TOOLWINDOW)
+Global $FORM  = GUICreate("Rainmeter skin confirator", $W, $H, $WS_EX_TOOLWINDOW)
 Global $YES = GUICtrlCreateButton("OK", $W-155, $H-30, 150, 25)
 Global $NO = GUICtrlCreateButton("Cancel", $W-310, $H-30, 150, 25)
 Global $INFO = GUICtrlCreateButton("About", 5, $H-30, 40, 25)
@@ -50,7 +50,7 @@ For $i = 0 To $countFileConfin - 1
   Local $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
   Local $endGroupY = 0
   Local $startGroupY = 30
-  $items[$i][0][0] = GUICtrlCreateTabitem($fileINI)
+  GUICtrlCreateTabitem($fileINI)
   $countSection = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]'))
   For $j = 0 To $countSection - 1
     $countInput = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]'))
@@ -58,16 +58,18 @@ For $i = 0 To $countFileConfin - 1
     $endGroupY = 30 * $countInput + 25
     ; GROUP
     $sectionName = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["name"]')
-    $items[$i][$j][0] = GUICtrlCreateGroup ($sectionName, 10, $startGroupY, $W-20, $endGroupY)
+    GUICtrlCreateGroup ($sectionName, 10, $startGroupY, $W-20, $endGroupY)
     Local $startLableY = $startGroupY
     For $l = 0 To $countInput - 1
-      $startLableY = ($startGroupY + (30 * $l))+20
+      $startLableY = $startGroupY + 30 * $l+20
+      GUICtrlCreateLabel ("=", 272, $startLableY+4, 10, 25)
       GUICtrlCreateLabel (Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["discriotion"]'), 20, $startLableY, 250, 25, $SS_LEFT)
+      GUICtrlSetBkColor (-1, 0xefefef)
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
         Case "color"
-           ; $msg = "todo"
+           ; todo
         Case "combo"
-           ; $msg = "todo"
+           ; todo
         Case Else
           $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
           $val = IniRead($fileINI, $sectionName, $key, "" )
@@ -79,18 +81,24 @@ For $i = 0 To $countFileConfin - 1
 Next
 
 Func WriteFileINI()
-   For $i = 0 To $countFileConfin - 1
-    $countSection = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]'))
-    For $j = 0 To $countSection - 1
-     $countInput = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]'))
-     For $l = 0 To $countInput - 1
-      $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
-      $sectionName = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["name"]')
-      $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-      IniWrite($fileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
-     Next
+  For $i = 0 To $countFileConfin - 1
+    For $j = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]')) - 1
+      For $l = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]')) - 1
+        Local $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
+        Local $sectionName = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["name"]')
+        Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
+        IniWrite($fileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
+      Next
     Next
-   Next
+  Next
+EndFunc
+
+Func RefreshSkin()
+  ; todo
+EndFunc
+
+Func ReadFileINI()
+  ; todo
 EndFunc
 
 GUISetState(@SW_SHOW)
@@ -101,7 +109,7 @@ While 1
      WriteFileINI()
      MsgBox(0, "Info", "Success"&@LF&"Refresh all skins")
     Case $msg = $INFO
-     MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 1.0.0 "&@LF&"License = MIT")
+     MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 1.0.0 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
     Case $msg = $NO
      ExitLoop
     Case $msg = $GUI_EVENT_CLOSE
