@@ -78,10 +78,16 @@ For $i = 0 To $countFileConfin - 1
       Local $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
       Local $val = IniRead($pathFileINI, $sectionName, $key, $default)
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
+        Case "slider"
+          Local $max = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
+          Local $min = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["min"]')
+          $items[$i][$j][$l] = GUICtrlCreateSlider(280, $startLableY, 145, 25, $TBS_BOTTOM)
+          If $min <> "" and $max <> "" Then GUICtrlSetLimit($items[$i][$j][$l], $max, $min)
+          If $val <> "" Then GUICtrlSetData ($items[$i][$j][$l], $val)
         Case "number"
           Local $max = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
           Local $min = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["min"]')
-          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, $ES_NUMBER)
           $updown = GUICtrlCreateUpdown($items[$i][$j][$l])
           If $min <> "" and $max <> "" Then GUICtrlSetLimit($updown, $max, $min)
         Case "combo"
