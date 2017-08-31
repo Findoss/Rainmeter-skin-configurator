@@ -77,13 +77,22 @@ For $i = 0 To $countFileConfin - 1
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
         Case "color"
            ; todo
-        Case "combo"
-           ; todo
+        Case "checkbox"
+          Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
+          Local $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
+          Local $val = IniRead($pathFileINI, $sectionName, $key, $default)
+          Local $state = 0
+          If $val <> "" Then 
+            $state = $val
+          ElseIf $default <> ""
+            $state = $default
+          EndIf
+          $items[$i][$j][$l] = GUICtrlCreateCheckbox ("", 285, $startLableY, 140, 25)
+          GUICtrlSetState ($items[$i][$j][$l], $state )
         Case Else
           $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
           $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
           $val = IniRead($pathFileINI, $sectionName, $key, $default)
-          ; INPUT
           $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
       EndSwitch
     Next
