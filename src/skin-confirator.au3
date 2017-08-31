@@ -81,7 +81,8 @@ For $i = 0 To $countFileConfin - 1
            ; todo
         Case Else
           $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-          $val = IniRead($pathFileINI, $sectionName, $key, "" )
+          $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
+          $val = IniRead($pathFileINI, $sectionName, $key, $default)
           ; INPUT
           $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
       EndSwitch
