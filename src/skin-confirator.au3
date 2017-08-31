@@ -17,6 +17,10 @@ Local $jsonString = FileRead($configJsonFile)
 FileClose($configJsonFile)
 
 Global $OBJ = Json_Decode($jsonString)
+if @Error Then
+  MsgBox(16, "Error", "JSON string is invalid.")
+  Exit
+EndIf
 
 Global $countFileConfin = UBound(Json_Get($OBJ,'["config"]'))
 Local $countSection = 0
@@ -47,10 +51,15 @@ Global $INFO = GUICtrlCreateButton("About", 5, $H-30, 40, 25)
 GUICtrlCreateTab (5,5, $W-10,$H-35)
 For $i = 0 To $countFileConfin - 1
   ; TAB
-  Local $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
   Local $endGroupY = 0
   Local $startGroupY = 30
-  GUICtrlCreateTabitem($fileINI)
+  Local $pathFileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
+  Local $nameFileINI = Json_Get($OBJ,'["config"]['&$i&']["name"]')
+  If $nameFileINI <> "" Then 
+    GUICtrlCreateTabitem($nameFileINI)
+  Else 
+    GUICtrlCreateTabitem($pathFileINI)
+  EndIf
   $countSection = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]'))
   For $j = 0 To $countSection - 1
     $countInput = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]'))
@@ -65,15 +74,32 @@ For $i = 0 To $countFileConfin - 1
       GUICtrlCreateLabel ("=", 272, $startLableY+4, 10, 25)
       GUICtrlCreateLabel (Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["discriotion"]'), 20, $startLableY, 250, 25, $SS_LEFT)
       GUICtrlSetBkColor (-1, 0xefefef)
+      Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
+      Local $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
+      Local $val = IniRead($pathFileINI, $sectionName, $key, $default)
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
-        Case "color"
-           ; todo
+        Case "slider"
+          Local $max = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
+          Local $min = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["min"]')
+          $items[$i][$j][$l] = GUICtrlCreateSlider(280, $startLableY, 145, 25, $TBS_BOTTOM)
+          If $min <> "" and $max <> "" Then GUICtrlSetLimit($items[$i][$j][$l], $max, $min)
+          If $val <> "" Then GUICtrlSetData ($items[$i][$j][$l], $val)
+        Case "number"
+          Local $max = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
+          Local $min = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["min"]')
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, $ES_NUMBER)
+          $updown = GUICtrlCreateUpdown($items[$i][$j][$l])
+          If $min <> "" and $max <> "" Then GUICtrlSetLimit($updown, $max, $min)
         Case "combo"
-           ; todo
+          Local $options = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["options"]')
+          $items[$i][$j][$l] = GUICtrlCreateCombo ("", 280, $startLableY, 145, 25)
+          GUICtrlSetData($items[$i][$j][$l], $options, $val)
+        Case "checkbox"
+          $items[$i][$j][$l] = GUICtrlCreateCheckbox ("", 285, $startLableY, 140, 25)
+          GUICtrlSetState ($items[$i][$j][$l], $val)
+        Case "password"
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, $ES_PASSWORD)
         Case Else
-          $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-          $val = IniRead($fileINI, $sectionName, $key, "" )
-          ; INPUT
           $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
       EndSwitch
     Next
@@ -84,10 +110,10 @@ Func WriteFileINI()
   For $i = 0 To $countFileConfin - 1
     For $j = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]')) - 1
       For $l = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]')) - 1
-        Local $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
+        Local $pathFileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
         Local $sectionName = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["name"]')
         Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-        IniWrite($fileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
+        IniWrite($pathFileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
       Next
     Next
   Next
