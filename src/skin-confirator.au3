@@ -79,7 +79,9 @@ For $i = 0 To $countFileConfin - 1
       Local $val = IniRead($pathFileINI, $sectionName, $key, $default)
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
         Case "combo"
-           ; todo
+          Local $options = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["options"]')
+          $items[$i][$j][$l] = GUICtrlCreateCombo ("", 280, $startLableY, 145, 25)
+          GUICtrlSetData($items[$i][$j][$l], $options, $val)
         Case "checkbox"
           $items[$i][$j][$l] = GUICtrlCreateCheckbox ("", 285, $startLableY, 140, 25)
           GUICtrlSetState ($items[$i][$j][$l], $val)
