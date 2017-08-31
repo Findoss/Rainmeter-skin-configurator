@@ -17,6 +17,10 @@ Local $jsonString = FileRead($configJsonFile)
 FileClose($configJsonFile)
 
 Global $OBJ = Json_Decode($jsonString)
+if @Error Then
+  MsgBox(16, "Error", "JSON string is invalid.")
+  Exit
+EndIf
 
 Global $countFileConfin = UBound(Json_Get($OBJ,'["config"]'))
 Local $countSection = 0
@@ -51,15 +55,11 @@ For $i = 0 To $countFileConfin - 1
   Local $startGroupY = 30
   Local $pathFileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
   Local $nameFileINI = Json_Get($OBJ,'["config"]['&$i&']["name"]')
-  ConsoleWrite($nameFileINI)
   If $nameFileINI <> "" Then 
     GUICtrlCreateTabitem($nameFileINI)
   Else 
     GUICtrlCreateTabitem($pathFileINI)
   EndIf
-  
-
-
   $countSection = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]'))
   For $j = 0 To $countSection - 1
     $countInput = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]'))
