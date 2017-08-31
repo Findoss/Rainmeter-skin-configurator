@@ -97,6 +97,8 @@ For $i = 0 To $countFileConfin - 1
         Case "checkbox"
           $items[$i][$j][$l] = GUICtrlCreateCheckbox ("", 285, $startLableY, 140, 25)
           GUICtrlSetState ($items[$i][$j][$l], $val)
+        Case "password"
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, $ES_PASSWORD)
         Case Else
           $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
       EndSwitch
