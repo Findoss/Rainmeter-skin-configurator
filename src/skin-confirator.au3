@@ -47,10 +47,19 @@ Global $INFO = GUICtrlCreateButton("About", 5, $H-30, 40, 25)
 GUICtrlCreateTab (5,5, $W-10,$H-35)
 For $i = 0 To $countFileConfin - 1
   ; TAB
-  Local $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
   Local $endGroupY = 0
   Local $startGroupY = 30
-  GUICtrlCreateTabitem($fileINI)
+  Local $pathFileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
+  Local $nameFileINI = Json_Get($OBJ,'["config"]['&$i&']["name"]')
+  ConsoleWrite($nameFileINI)
+  If $nameFileINI <> "" Then 
+    GUICtrlCreateTabitem($nameFileINI)
+  Else 
+    GUICtrlCreateTabitem($pathFileINI)
+  EndIf
+  
+
+
   $countSection = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]'))
   For $j = 0 To $countSection - 1
     $countInput = UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]'))
@@ -72,7 +81,7 @@ For $i = 0 To $countFileConfin - 1
            ; todo
         Case Else
           $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-          $val = IniRead($fileINI, $sectionName, $key, "" )
+          $val = IniRead($pathFileINI, $sectionName, $key, "" )
           ; INPUT
           $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
       EndSwitch
@@ -84,10 +93,10 @@ Func WriteFileINI()
   For $i = 0 To $countFileConfin - 1
     For $j = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]')) - 1
       For $l = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]')) - 1
-        Local $fileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
+        Local $pathFileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
         Local $sectionName = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["name"]')
         Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-        IniWrite($fileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
+        IniWrite($pathFileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
       Next
     Next
   Next
