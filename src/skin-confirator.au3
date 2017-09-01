@@ -70,13 +70,15 @@ For $i = 0 To $countFileConfin - 1
     GUICtrlCreateGroup ($sectionName, 10, $startGroupY, $W-20, $endGroupY)
     Local $startLableY = $startGroupY
     For $l = 0 To $countInput - 1
-      $startLableY = $startGroupY + 30 * $l+20
-      GUICtrlCreateLabel ("=", 272, $startLableY+4, 10, 25)
-      GUICtrlCreateLabel (Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["discriotion"]'), 20, $startLableY, 250, 25, $SS_LEFT)
-      GUICtrlSetBkColor (-1, 0xefefef)
       Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
       Local $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
       Local $val = IniRead($pathFileINI, $sectionName, $key, $default)
+      Local $discriotion = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["discriotion"]')
+      If $discriotion = "" Then $discriotion = $key
+      $startLableY = $startGroupY + 30 * $l+20
+      GUICtrlCreateLabel ($discriotion, 20, $startLableY, 250, 25, $SS_LEFT)
+      GUICtrlSetBkColor (-1, 0xefefef)
+      GUICtrlCreateLabel ("=", 272, $startLableY+4, 10, 25)
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
         Case "slider"
           Local $max = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
