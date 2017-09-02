@@ -10,19 +10,22 @@
             {
               "type": "input", 
               "discriotion": "key 1 - Type input text",
-              "key": "key1"
-            },
-            {
-              "type": "input", 
-              "discriotion": "key 2 - Type input text",
-              "key": "key2",
+              "key": "key1",
               "default": "default value"
             },
             {
               "type": "password", 
-              "discriotion": "key 3 - Type password",
-              "key": "key3",
-              "default": "default"
+              "discriotion": "key 2 - Type password",
+              "key": "key2",
+              "default": "default pass"
+            },
+            {
+              "type": "input", 
+              "discriotion": "addition to the key ( prefix = 'pre', sufix = 'su')",
+              "key": "addition",
+              "default": "CORE",
+              "prefix": "pre",
+              "sufix": "su"
             }
           ]
         },
@@ -31,15 +34,15 @@
           "inputs": [
             {
               "type": "combo", 
-              "discriotion": "key 4 - Type combo",
-              "key": "key4",
+              "discriotion": "key 3 - Type combo",
+              "key": "key3",
               "options": "item1|item2|item3",
               "default": "item1"
             },
             {
               "type": "number", 
-              "discriotion": "key 5 - Type number, (no limit)",
-              "key": "key5",
+              "discriotion": "key 4 - Type number, (no limit)",
+              "key": "key4",
               "default": 2,
               "limit": {
                 "min": -2,
@@ -48,8 +51,8 @@
             },
             {
               "type": "slider", 
-              "discriotion": "key 6 - Type slider, (min:-2, max:3)",
-              "key": "key6",
+              "discriotion": "key 5 - Type slider, (min:-2, max:3)",
+              "key": "key5",
               "default": -2,
               "limit": {
                 "min": -2,
@@ -63,15 +66,15 @@
           "inputs": [
             {
               "type": "checkbox", 
-              "discriotion": "key 7 - Type checkbox",
-              "key": "key7",
+              "discriotion": "key 6 - Type checkbox",
+              "key": "key6",
               "default": 1
             },
             {
               "type": "input", 
               "discriotion": "Discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines.",
-              "key": "key8",
-              "default": "key8"
+              "key": "key7",
+              "default": "key7"
             }
           ]
         }

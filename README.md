@@ -31,6 +31,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ```
   "type": "input", 
   "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": String      // [optional] default value
 ```
@@ -39,6 +41,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ```
   "type": "password", 
   "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": String      // [optional] default value
 ```
@@ -48,6 +52,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "combo", 
   "key": String,         // key
   "options": String,     // elements should split |
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": String      // [optional] default element
 ```
@@ -56,6 +62,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ```
   "type": "number", 
   "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number,     // [optional] default value
   "limit": {             // [optional] limit
@@ -68,6 +76,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ```
   "type": "slider", 
   "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number,     // [optional] default value
   "limit": {             // [optional] limit
@@ -80,6 +90,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ```
   "type": "checkbox", 
   "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number      // [optional] only 1 (TRUE) or 0 (FALSE)
 ```
@@ -93,7 +105,6 @@ Discriotion lines = 2
 ## Plans
 * Update combo box
 * More type input (color, date)  
-* Syfix and prefix  
 [Read more](https://github.com/Findoss/Rainmeter-skin-configurator/projects)
 
 ## License
