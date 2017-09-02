@@ -17,7 +17,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 
 ### Section
 ```
-"section": [            // sections
+"sections": [           // sections
   {
     "name": String,     // name section
     "inputs": [Objects] // inputs
@@ -51,11 +51,17 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ```
   "type": "combo", 
   "key": String,         // key
-  "options": String,     // elements should split |
+  "options": [
+    {
+      "value": String,
+      "text": String     // [optional] text option
+    }
+    ... (next options)
+  ],
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": String      // [optional] default element
+  "default": String      // [optional] default value option
 ```
 
 #### Number
@@ -103,7 +109,6 @@ Inputs = 25 in section
 Discriotion lines = 2
 
 ## Plans
-* Update combo box
 * More type input (color, date)  
 [Read more](https://github.com/Findoss/Rainmeter-skin-configurator/projects)
 

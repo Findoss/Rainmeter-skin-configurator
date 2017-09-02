@@ -3,7 +3,7 @@
     {
       "name": "Main file",
       "pathConfigFile": "../@Resources/Variables.inc",
-      "section": [
+      "sections": [
         {
           "name": "Section",
           "inputs": [
@@ -21,7 +21,7 @@
             },
             {
               "type": "input", 
-              "discriotion": "addition to the key ( prefix = 'pre', sufix = 'su')",
+              "discriotion": "addition to value ( prefix = 'pre', sufix = 'su')",
               "key": "addition",
               "default": "CORE",
               "prefix": "pre",
@@ -36,8 +36,21 @@
               "type": "combo", 
               "discriotion": "key 3 - Type combo",
               "key": "key3",
-              "options": "item1|item2|item3",
-              "default": "item1"
+              "options": [
+                {
+                  "value":"value1",
+                  "text":"text1"
+                },
+                {
+                  "value":"value2",
+                  "text":"text2",
+                },
+                {
+                  "value":"value3",
+                  "text":"text3"
+                },
+              ],
+              "default": "value2"
             },
             {
               "type": "number", 
@@ -73,50 +86,44 @@
             {
               "type": "input", 
               "discriotion": "Discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines.",
-              "key": "key7",
-              "default": "key7"
+              "key": "FontFace",
+              "default": "FontFace"
             }
           ]
         }
       ]
     },
     {
-      "name": "Secondary file",
-      "pathConfigFile": "../@Resources/Secondary/SecondaryVariables.inc",
-      "section": [
+      "name": "next file",
+      "pathConfigFile": "../@Resources/Secondary/Variables2.inc",
+      "sections": [
         {
-          "name": "Section_1",
+          "name": "Section",
           "inputs": [
             {
               "type": "input", 
-              "discriotion": "Discriotion 1",
-              "key": "key1"
+              "discriotion": "key 1 - Type input text",
+              "key": "key1",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 2",
-              "key": "key2"
+              "discriotion": "key 2 - Type input text",
+              "key": "key2",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 3",
-              "key": "key3"
+              "discriotion": "key 3 - Type input text",
+              "key": "key3",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 4",
-              "key": "key4"
+              "discriotion": "key 4 - Type input text",
+              "key": "key4",
+              "default": "default value"
             },
-            {
-              "type": "input", 
-              "discriotion": "Discriotion 5",
-              "key": "key5"
-            },
-            {
-              "type": "input", 
-              "discriotion": "Discriotion 6",
-              "key": "key6"
-            }
           ]
         },
         {
@@ -124,28 +131,39 @@
           "inputs": [
             {
               "type": "input", 
-              "discriotion": "Discriotion 1",
-              "key": "key1"
+              "discriotion": "key 1 - Type input text",
+              "key": "key1",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 2",
-              "key": "key2"
+              "discriotion": "key 2 - Type input text",
+              "key": "key2",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 3",
-              "key": "key3"
+              "discriotion": "key 3 - Type input text",
+              "key": "key3",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 4",
-              "key": "key4"
+              "discriotion": "key 4 - Type input text",
+              "key": "key4",
+              "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion 5",
-              "key": "key5"
+              "discriotion": "key 5 - Type input text",
+              "key": "key5",
+              "default": "default value"
+            },
+            {
+              "type": "input", 
+              "discriotion": "key 6 - Type input text",
+              "key": "key6",
+              "default": "default value"
             }
           ]
         }
