@@ -1,7 +1,7 @@
 #cs
   Name = Rainmeter skin confirator
   Author = Findoss
-  Version = 1.0.1
+  Version = 1.0.2
   License = MIT
 #ce
 
@@ -70,13 +70,19 @@ For $i = 0 To $countFileConfin - 1
     GUICtrlCreateGroup ($sectionName, 10, $startGroupY, $W-20, $endGroupY)
     Local $startLableY = $startGroupY
     For $l = 0 To $countInput - 1
-      $startLableY = $startGroupY + 30 * $l+20
-      GUICtrlCreateLabel ("=", 272, $startLableY+4, 10, 25)
-      GUICtrlCreateLabel (Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["discriotion"]'), 20, $startLableY, 250, 25, $SS_LEFT)
-      GUICtrlSetBkColor (-1, 0xefefef)
       Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
       Local $default = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["default"]')
       Local $val = IniRead($pathFileINI, $sectionName, $key, $default)
+      Local $prefix = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["prefix"]')
+      If $prefix <> "" Then $val = StringReplace ($val, $prefix, "", 1, 1)
+      Local $sufix = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["sufix"]')
+      If $sufix <> "" Then $val = StringReplace ($val, $sufix, "", 1, 1)
+      Local $discriotion = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["discriotion"]')
+      If $discriotion = "" Then $discriotion = $key
+      $startLableY = $startGroupY + 30 * $l+20
+      GUICtrlCreateLabel ($discriotion, 20, $startLableY, 250, 25, $SS_LEFT)
+      GUICtrlSetBkColor (-1, 0xefefef)
+      GUICtrlCreateLabel ("=", 272, $startLableY+4, 10, 25)
       Switch Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["type"]')
         Case "slider"
           Local $max = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
@@ -112,19 +118,13 @@ Func WriteFileINI()
       For $l = 0 To UBound(Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]')) - 1
         Local $pathFileINI = Json_Get($OBJ,'["config"]['&$i&']["pathConfigFile"]')
         Local $sectionName = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["name"]')
+        Local $prefix = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["prefix"]')
+        Local $sufix = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["sufix"]')
         Local $key = Json_Get($OBJ,'["config"]['&$i&']["section"]['&$j&']["inputs"]['&$l&']["key"]')
-        IniWrite($pathFileINI, $sectionName, $key, '"'&GUICtrlRead($items[$i][$j][$l])&'"')
+        IniWrite($pathFileINI, $sectionName, $key, '"'& $prefix & GUICtrlRead($items[$i][$j][$l]) & $sufix &'"')
       Next
     Next
   Next
-EndFunc
-
-Func RefreshSkin()
-  ; todo
-EndFunc
-
-Func ReadFileINI()
-  ; todo
 EndFunc
 
 GUISetState(@SW_SHOW)
@@ -135,7 +135,7 @@ While 1
      WriteFileINI()
      MsgBox(0, "Info", "Success"&@LF&"Refresh all skins")
     Case $msg = $INFO
-     MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 1.0.0 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
+     MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 1.0.2 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
     Case $msg = $NO
      ExitLoop
     Case $msg = $GUI_EVENT_CLOSE
