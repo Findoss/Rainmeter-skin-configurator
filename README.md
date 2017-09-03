@@ -109,7 +109,7 @@ Inputs = 25 in section
 Discriotion lines = 2
 
 ## Plans
-* More type input (color, date)  
+More type input (color, edit, float)  
 [Read more](https://github.com/Findoss/Rainmeter-skin-configurator/projects)
 
 ## License
