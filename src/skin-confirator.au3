@@ -78,6 +78,8 @@ For $i = 0 To $countFileConfin - 1
       If $prefix <> "" Then $val = StringReplace ($val, $prefix, "", 1, 1)
       Local $sufix = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["sufix"]')
       If $sufix <> "" Then $val = StringReplace ($val, $sufix, "", 1, 1)
+      Local $disabled = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["disabled"]')
+      If $disabled = TRUE Then $disabled = 0x08000000
       Local $discriotion = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["discriotion"]')
       If $discriotion = "" Then $discriotion = $key
       $startLableY = $startGroupY + 30 * $l+20
@@ -89,14 +91,14 @@ For $i = 0 To $countFileConfin - 1
         Case "slider"
           Local $max = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
           Local $min = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["limit"]["min"]')
-          $items[$i][$j][$l] = GUICtrlCreateSlider(280, $startLableY, 145, 25, 0x0000)
+          $items[$i][$j][$l] = GUICtrlCreateSlider(280, $startLableY, 145, 25, 0x0000 + $disabled)
           If $min <> "" and $max <> "" Then GUICtrlSetLimit($items[$i][$j][$l], $max, $min)
           If $val <> "" Then GUICtrlSetData ($items[$i][$j][$l], $val)
 
         Case "number"
           Local $max = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["limit"]["max"]')
           Local $min = Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["limit"]["min"]')
-          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, 0x2000)
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, 0x2000 + $disabled)
           $updown = GUICtrlCreateUpdown($items[$i][$j][$l])
           If $min <> "" and $max <> "" Then GUICtrlSetLimit($updown, $max, $min)
 
@@ -116,14 +118,14 @@ For $i = 0 To $countFileConfin - 1
           GUICtrlSetData($items[$i][$j][$l], $stringOptions, $defaultOption)
 
         Case "checkbox"
-          $items[$i][$j][$l] = GUICtrlCreateCheckbox ("", 285, $startLableY, 140, 25)
+          $items[$i][$j][$l] = GUICtrlCreateCheckbox ("", 285, $startLableY, 140, 25, $disabled)
           GUICtrlSetState ($items[$i][$j][$l], $val)
 
         Case "password"
-          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, 0x0020)
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, 0x0020 + $disabled)
 
         Case Else
-          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25)
+          $items[$i][$j][$l] = GUICtrlCreateInput ($val, 280, $startLableY, 145, 25, $disabled)
       EndSwitch
     Next
   Next
@@ -154,7 +156,7 @@ While 1
    Select
     Case $msg = $YES
      WriteFileINI()
-     MsgBox(0, "Info", "Success")
+     MsgBox(0, "Info", " Success")
     Case $msg = $INFO
      MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 2.0.0 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
     Case $msg = $NO
