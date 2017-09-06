@@ -4,6 +4,9 @@
   Version = 2.0.0
   License = MIT
 #ce
+
+#include <Misc.au3>
+#include <Array.au3>
 #include <..\libs\GUIConstantsEx.au3>
 #include <..\libs\GUIComboBox.au3>
 #include <..\libs\BinaryCall.au3>
@@ -42,6 +45,7 @@ Next
 Local $limitSection = 15
 Local $limitInput = 25
 Dim $items[$countFileConfin][$limitSection][$limitInput]
+Dim $colors[1]
 
 Global $W = 440
 Global $H = $max+5
@@ -102,6 +106,12 @@ For $i = 0 To $countFileConfin - 1
           $updown = GUICtrlCreateUpdown($items[$i][$j][$l])
           If $min <> "" and $max <> "" Then GUICtrlSetLimit($updown, $max, $min)
 
+        Case "color"
+          $items[$i][$j][$l] = GUICtrlCreateButton ( "", 280, $startLableY, 145, 25, $disabled)
+          GUICtrlSetBkColor ( $items[$i][$j][$l] , $default )
+          _ArrayAdd( $colors, $items[$i][$j][$l])
+
+
         Case "combo"
           Local $options = UBound(Json_Get($OBJ,'["config"]['&$i&']["sections"]['&$j&']["inputs"]['&$l&']["options"]'))
           Local $stringOptions = ""
@@ -154,6 +164,11 @@ GUISetState(@SW_SHOW)
 While 1
    $msg = GUIGetMsg()
    Select
+    Case $msg = $YES
+      Local $color = _ChooseColor (2)
+      If (NOT @error) Then
+        ; todo
+      EndIf
     Case $msg = $YES
      WriteFileINI()
      MsgBox(0, "Info", " Success")

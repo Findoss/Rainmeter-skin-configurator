@@ -34,7 +34,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": String      // [optional] default value
+  "default": String,     // [optional] default value
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 #### Password
@@ -44,7 +45,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": String      // [optional] default value
+  "default": String,     // [optional] default value
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 #### Combo box
@@ -72,6 +74,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number,     // [optional] default value
+  "disabled": Boolean,   // [optional] is disabled
   "limit": {             // [optional] limit
     "min": Number,       // min value
     "max": Number        // max value
@@ -86,6 +89,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number,     // [optional] default value
+  "disabled": Boolean,   // [optional] is disabled
   "limit": {             // [optional] limit
     "min": Number,       // min value
     "max": Number        // max value
@@ -99,7 +103,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": Number      // [optional] only 1 (TRUE) or 0 (FALSE)
+  "default": Number,     // [optional] only 1 (TRUE) or 0 (FALSE)
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 ### ! Limits
