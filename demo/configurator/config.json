@@ -9,19 +9,19 @@
           "inputs": [
             {
               "type": "input", 
-              "discriotion": "key 1 - Type input text",
+              "discriotion": "Discriotion key 1 - Type input text",
               "key": "key1",
               "default": "default value"
             },
             {
               "type": "password", 
-              "discriotion": "key 2 - Type password",
+              "discriotion": "Discriotion key 2 - Type password",
               "key": "key2",
               "default": "default pass"
             },
             {
               "type": "input", 
-              "discriotion": "addition to value ( prefix = 'pre', sufix = 'su')",
+              "discriotion": "addition to the key ( prefix = 'pre', sufix = 'su')",
               "key": "addition",
               "default": "CORE",
               "prefix": "pre",
@@ -34,7 +34,7 @@
           "inputs": [
             {
               "type": "combo", 
-              "discriotion": "key 3 - Type combo",
+              "discriotion": "Discriotion key 3 - Type combo",
               "key": "key3",
               "options": [
                 {
@@ -54,13 +54,13 @@
             },
             {
               "type": "number", 
-              "discriotion": "key 4 - Type number, (no limit)",
+              "discriotion": "Discriotion key 4 - Type number, (no limit)",
               "key": "key4",
               "default": 2
             },
             {
               "type": "slider", 
-              "discriotion": "key 5 - Type slider, (min:-2, max:3)",
+              "discriotion": "Discriotion key 5 - Type slider, (min:-2, max:3)",
               "key": "key5",
               "default": -2,
               "limit": {
@@ -75,9 +75,22 @@
           "inputs": [
             {
               "type": "checkbox", 
-              "discriotion": "key 6 - Type checkbox",
+              "discriotion": "Discriotion key 6 - Type checkbox",
               "key": "key6",
               "default": 1
+            },
+            {
+              "type": "input", 
+              "discriotion": "Discriotion key 7 - disabled input text",
+              "key": "key7",
+              "default": "default disabled value",
+              "disabled": true
+            },
+            {
+              "type": "color", 
+              "discriotion": "Discriotion key 8 - color",
+              "key": "key8",
+              "default": "0x00ff00"
             },
             {
               "type": "input", 

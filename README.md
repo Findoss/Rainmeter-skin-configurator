@@ -34,7 +34,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": String      // [optional] default value
+  "default": String,     // [optional] default value
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 #### Password
@@ -44,7 +45,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": String      // [optional] default value
+  "default": String,     // [optional] default value
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 #### Combo box
@@ -72,10 +74,22 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number,     // [optional] default value
+  "disabled": Boolean,   // [optional] is disabled
   "limit": {             // [optional] limit
     "min": Number,       // min value
     "max": Number        // max value
   }
+```
+
+#### Color pikcer
+```
+  "type": "color", 
+  "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
+  "discriotion": String, // [optional] discriotion
+  "default": String,     // [optional] default value (HEX format !)
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 #### Slider
@@ -86,6 +100,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
   "default": Number,     // [optional] default value
+  "disabled": Boolean,   // [optional] is disabled
   "limit": {             // [optional] limit
     "min": Number,       // min value
     "max": Number        // max value
@@ -99,17 +114,19 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": Number      // [optional] only 1 (TRUE) or 0 (FALSE)
+  "default": Number,     // [optional] only 1 (TRUE) or 0 (FALSE)
+  "disabled": Boolean    // [optional] is disabled
 ```
 
 ### ! Limits
 Configuration files = no limits  
 Sections = 15 in file  
+Color Pickers = 40 in file  
 Inputs = 25 in section  
 Discriotion lines = 2
 
 ## Plans
-More type input (color, edit, float)  
+More type input (edit, float)  
 [Read more](https://github.com/Findoss/Rainmeter-skin-configurator/projects)
 
 ## License
