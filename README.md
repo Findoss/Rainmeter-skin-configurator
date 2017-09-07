@@ -81,6 +81,17 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   }
 ```
 
+#### Color pikcer
+```
+  "type": "color", 
+  "key": String,         // key
+  "prefix": String,      // [optional] prefix
+  "sufix": String,       // [optional] sufix
+  "discriotion": String, // [optional] discriotion
+  "default": String,     // [optional] default value **! HEX format**
+  "disabled": Boolean    // [optional] is disabled
+```
+
 #### Slider
 ```
   "type": "slider", 
@@ -114,7 +125,7 @@ Inputs = 25 in section
 Discriotion lines = 2
 
 ## Plans
-More type input (color, edit, float)  
+More type input (edit, float)  
 [Read more](https://github.com/Findoss/Rainmeter-skin-configurator/projects)
 
 ## License
