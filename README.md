@@ -88,7 +88,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "prefix": String,      // [optional] prefix
   "sufix": String,       // [optional] sufix
   "discriotion": String, // [optional] discriotion
-  "default": String,     // [optional] default value **! HEX format**
+  "default": String,     // [optional] default value (HEX format !)
   "disabled": Boolean    // [optional] is disabled
 ```
 
@@ -121,6 +121,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
 ### ! Limits
 Configuration files = no limits  
 Sections = 15 in file  
+Color Pickers = 40 in file  
 Inputs = 25 in section  
 Discriotion lines = 2
 
