@@ -201,7 +201,7 @@ While 1
     ; INFO BUTTON
     ; 
     Case $INFO
-      MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 2.0.2 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
+      MsgBox(64, "About", "Rainmeter skin configurator"&@LF&"Author Findoss "&@LF&"Version = 2.0.2 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
     ; 
     ; CANCEL BUTTON
     ; 
