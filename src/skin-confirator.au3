@@ -1,7 +1,7 @@
 #cs
   Name = Rainmeter skin confirator
   Author = Findoss
-  Version = 2.0.1
+  Version = 2.0.2
   License = MIT
 #ce
 
@@ -25,6 +25,7 @@ if @Error Then
   Exit
 EndIf
 
+Global $debugMode = Json_Get($OBJ,'["debug"]')
 Global $countFileConfin = UBound(Json_Get($OBJ,'["config"]'))
 Local $countSection = 0
 Local $countInput = 0
@@ -51,7 +52,7 @@ Dim $colors[$limitColors]
 
 Global $W = 440
 Global $H = $max+5
-Global $FORM  = GUICreate("Rainmeter skin confirator", $W, $H)
+Global $FORM  = GUICreate("Rainmeter skin configurator", $W, $H)
 Global $SAVE = GUICtrlCreateButton("OK", $W-155, $H-30, 150, 25)
 Global $CANCEL = GUICtrlCreateButton("Cancel", $W-310, $H-30, 150, 25)
 Global $INFO = GUICtrlCreateButton("About", 5, $H-30, 40, 25)
@@ -190,23 +191,27 @@ While 1
     ; SAVE BUTTON
     ; 
     Case $SAVE
-     WriteFileINI()
-     MsgBox(0, "Info", " Success")
+      WriteFileINI()
+      If $debugMode Then 
+        MsgBox(0, "Debug info", " Success")
+      Else
+        ExitLoop
+      Endif
     ; 
     ; INFO BUTTON
     ; 
     Case $INFO
-     MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 2.0.1 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
+      MsgBox(64, "About", "Rainmeter skin confirator"&@LF&"Author Findoss "&@LF&"Version = 2.0.2 "&@LF&"License = MIT"&@LF&@LF&"GitHub.com/Findoss/Rainmeter-skin-configurator")
     ; 
     ; CANCEL BUTTON
     ; 
     Case $CANCEL
-     ExitLoop
+      ExitLoop
     ; 
     ; EXIT BUTTON
     ; 
     Case $GUI_EVENT_CLOSE
-     ExitLoop
+      ExitLoop
   EndSwitch
   ; 
   ; COLORS ITEMS
