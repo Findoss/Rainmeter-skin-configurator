@@ -9,18 +9,24 @@
 ## Using
 Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-configurator/blob/master/demo/configurator/config.json))
 
+### Core configurate
+`"debug": Boolean // TRUE- on debug mode`
+
 ### INI file configurate
 ```
-"pathConfigFile": String,  // path config file
-"name": String,            // [optional] name config file
+"config": [
+  "pathConfigFile": String,  // path config file
+  "name": String,            // [optional] name config file
+  "sections": Array          // sections
+]
 ```
 
 ### Section
 ```
-"sections": [           // sections
+"sections": [        // sections
   {
-    "name": String,     // name section
-    "inputs": [Objects] // inputs
+    "name": String,  // name section
+    "inputs": Array  // inputs
   }
 ]
 ```
