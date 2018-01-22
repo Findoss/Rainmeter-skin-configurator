@@ -132,8 +132,15 @@ Inputs = 25 in section
 Discriotion lines = 2
 
 ## Plans
-More type input (edit, float)  
-[Read more](https://github.com/Findoss/Rainmeter-skin-configurator/projects)
+More type input (edit, float)
+
+## Сontribution
+Fork it
+Create your feature branch (git checkout -b my-new-feature)
+Make your changes
+Commit your changes (git commit -am 'Add some feature')
+Push to the branch (git push origin my-new-feature)
+Create new Pull Request
 
 ## License
 [MIT](https://github.com/Findoss/Rainmeter-skin-configurator/blob/master/LICENSE.txt). Copyright (c) [Findoss](https://github.com/Findoss).
