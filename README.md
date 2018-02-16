@@ -9,10 +9,10 @@
 ## Using
 Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-configurator/blob/master/demo/configurator/config.json))
 
-### Core configurate
+### Core configuration
 `"debug": Boolean // TRUE- on debug mode`
 
-### INI file configurate
+### INI file configuration
 ```
 "config": [
   "pathConfigFile": String,  // path config file
@@ -38,8 +38,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "input", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": String,     // [optional] default value
   "disabled": Boolean    // [optional] is disabled
 ```
@@ -49,8 +49,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "password", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": String,     // [optional] default value
   "disabled": Boolean    // [optional] is disabled
 ```
@@ -67,8 +67,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
     ... (next options)
   ],
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": String      // [optional] default value option
 ```
 
@@ -77,8 +77,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "number", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": Number,     // [optional] default value
   "disabled": Boolean,   // [optional] is disabled
   "limit": {             // [optional] limit
@@ -87,13 +87,13 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   }
 ```
 
-#### Color pikcer
+#### Colorpicker
 ```
   "type": "color", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": String,     // [optional] default value (HEX format !)
   "disabled": Boolean    // [optional] is disabled
 ```
@@ -103,8 +103,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "slider", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": Number,     // [optional] default value
   "disabled": Boolean,   // [optional] is disabled
   "limit": {             // [optional] limit
@@ -118,8 +118,8 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "checkbox", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "sufix": String,       // [optional] sufix
-  "discriotion": String, // [optional] discriotion
+  "suffix": String,       // [optional] suffix
+  "description": String, // [optional] description
   "default": Number,     // [optional] only 1 (TRUE) or 0 (FALSE)
   "disabled": Boolean    // [optional] is disabled
 ```
@@ -129,12 +129,12 @@ Configuration files = no limits
 Sections = 15 in file  
 Color Pickers = 40 in file  
 Inputs = 25 in section  
-Discriotion lines = 2
+Description lines = 2
 
 ## Plans
 More type input (edit, float)
 
-## Сontribution
+## Contribution
 Fork it  
 Create your feature branch (git checkout -b my-new-feature)  
 Make your changes  

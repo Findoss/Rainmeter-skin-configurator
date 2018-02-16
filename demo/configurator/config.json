@@ -9,23 +9,23 @@
           "inputs": [
             {
               "type": "input", 
-              "discriotion": "Discriotion key 1 - Type input text",
+              "description": "description key 1 - Type input text",
               "key": "key1",
               "default": "default value"
             },
             {
               "type": "password", 
-              "discriotion": "Discriotion key 2 - Type password",
+              "description": "description key 2 - Type password",
               "key": "key2",
               "default": "default pass"
             },
             {
               "type": "input", 
-              "discriotion": "addition to the key ( prefix = 'pre', sufix = 'su')",
+              "description": "addition to the key ( prefix = 'pre', suffix = 'su')",
               "key": "addition",
               "default": "CORE",
               "prefix": "pre",
-              "sufix": "su"
+              "suffix": "su"
             }
           ]
         },
@@ -34,7 +34,7 @@
           "inputs": [
             {
               "type": "combo", 
-              "discriotion": "Discriotion key 3 - Type combo",
+              "description": "description key 3 - Type combo",
               "key": "key3",
               "options": [
                 {
@@ -54,13 +54,13 @@
             },
             {
               "type": "number", 
-              "discriotion": "Discriotion key 4 - Type number, (no limit)",
+              "description": "description key 4 - Type number, (no limit)",
               "key": "key4",
               "default": 2
             },
             {
               "type": "slider", 
-              "discriotion": "Discriotion key 5 - Type slider, (min:-2, max:3)",
+              "description": "description key 5 - Type slider, (min:-2, max:3)",
               "key": "key5",
               "default": -2,
               "limit": {
@@ -75,26 +75,26 @@
           "inputs": [
             {
               "type": "checkbox", 
-              "discriotion": "Discriotion key 6 - Type checkbox",
+              "description": "description key 6 - Type checkbox",
               "key": "key6",
               "default": 1
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion key 7 - disabled input text",
+              "description": "description key 7 - disabled input text",
               "key": "key7",
               "default": "default disabled value",
               "disabled": true
             },
             {
               "type": "color", 
-              "discriotion": "Discriotion key 8 - color",
+              "description": "description key 8 - color",
               "key": "key8",
               "default": "0x00ff00"
             },
             {
               "type": "input", 
-              "discriotion": "Discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines, discriotion in 2 lines.",
+              "description": "description in 2 lines, description in 2 lines, description in 2 lines, description in 2 lines, description in 2 lines.",
               "key": "FontFace",
               "default": "FontFace"
             }
@@ -111,25 +111,25 @@
           "inputs": [
             {
               "type": "input", 
-              "discriotion": "key 1 - Type input text",
+              "description": "key 1 - Type input text",
               "key": "key1",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 2 - Type input text",
+              "description": "key 2 - Type input text",
               "key": "key2",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 3 - Type input text",
+              "description": "key 3 - Type input text",
               "key": "key3",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 4 - Type input text",
+              "description": "key 4 - Type input text",
               "key": "key4",
               "default": "default value"
             },
@@ -140,37 +140,37 @@
           "inputs": [
             {
               "type": "input", 
-              "discriotion": "key 1 - Type input text",
+              "description": "key 1 - Type input text",
               "key": "key1",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 2 - Type input text",
+              "description": "key 2 - Type input text",
               "key": "key2",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 3 - Type input text",
+              "description": "key 3 - Type input text",
               "key": "key3",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 4 - Type input text",
+              "description": "key 4 - Type input text",
               "key": "key4",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 5 - Type input text",
+              "description": "key 5 - Type input text",
               "key": "key5",
               "default": "default value"
             },
             {
               "type": "input", 
-              "discriotion": "key 6 - Type input text",
+              "description": "key 6 - Type input text",
               "key": "key6",
               "default": "default value"
             }
