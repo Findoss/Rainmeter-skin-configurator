@@ -38,7 +38,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "input", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": String,     // [optional] default value
   "disabled": Boolean    // [optional] is disabled
@@ -49,7 +49,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "password", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": String,     // [optional] default value
   "disabled": Boolean    // [optional] is disabled
@@ -67,7 +67,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
     ... (next options)
   ],
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": String      // [optional] default value option
 ```
@@ -77,7 +77,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "number", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": Number,     // [optional] default value
   "disabled": Boolean,   // [optional] is disabled
@@ -92,7 +92,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "color", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": String,     // [optional] default value (HEX format !)
   "disabled": Boolean    // [optional] is disabled
@@ -103,7 +103,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "slider", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": Number,     // [optional] default value
   "disabled": Boolean,   // [optional] is disabled
@@ -118,7 +118,7 @@ Create file config.json ([demo](https://github.com/Findoss/Rainmeter-skin-config
   "type": "checkbox", 
   "key": String,         // key
   "prefix": String,      // [optional] prefix
-  "suffix": String,       // [optional] suffix
+  "suffix": String,      // [optional] suffix
   "description": String, // [optional] description
   "default": Number,     // [optional] only 1 (TRUE) or 0 (FALSE)
   "disabled": Boolean    // [optional] is disabled
