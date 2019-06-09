@@ -131,9 +131,6 @@ Color Pickers = 40 in file
 Inputs = 25 in section  
 Description lines = 2
 
-## Plans
-More type input (edit, float)
-
 ## Contribution
 Please read [CONTRIBUTING.md](https://github.com/Findoss/Rainmeter-skin-configurator/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
