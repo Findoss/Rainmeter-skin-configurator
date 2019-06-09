@@ -135,12 +135,7 @@ Description lines = 2
 More type input (edit, float)
 
 ## Contribution
-Fork it  
-Create your feature branch (git checkout -b my-new-feature)  
-Make your changes  
-Commit your changes (git commit -am 'Add some feature')  
-Push to the branch (git push origin my-new-feature)  
-Create new Pull Request  
+Please read [CONTRIBUTING.md](https://github.com/Findoss/Rainmeter-skin-configurator/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 [MIT](https://github.com/Findoss/Rainmeter-skin-configurator/blob/master/LICENSE.txt). Copyright (c) [Findoss](https://github.com/Findoss).
